@@ -1,0 +1,48 @@
+{
+    "name": "umusic",
+    "version": "0.0.2",
+    "description": "Unofficial Webapp for Youtube Music",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "package-linux-appimage": "electron-builder build --linux appimage --x64",
+        "package-win": "electron-packager . Umusic --overwrite --asar=true --platform=win32 --arch=ia32 --icon=img/icon512x512.png --prune=true --out=release-builds --version-string.FileDescription=\"Unofficial Webapp for Youtube Music\" --version-string.ProductName=\"Umusic\"",
+        "package-linux": "electron-packager . Umusic --overwrite --asar=true --platform=linux --arch=x64 --icon=img/icon512x512.png --prune=true --out=release-builds"
+    },
+    "author": "Ereshkigal",
+    "license": "GPL-3.0",
+    "build": {
+        "appId": "in.Umusic",
+        "asar": true,
+        "protocols": [
+            {
+                "name": "Umusic",
+                "schemes": [
+                    "Umusic"
+                ]
+            }
+        ],
+        "linux": {
+            "protocols": {
+                "name": "Umusic",
+                "schemes": [
+                    "Umusic"
+                ]
+            },
+            "target": [
+                "AppImage"
+            ],
+            "desktop": {
+                "Icon": "img/icon512x512.png"
+            },
+            "category": "Entertainment"
+        }
+    },
+    "dependencies": {
+        "electron": "^13.1.6",
+        "electron-window-state": "^5.0.3"
+    },
+    "devDependencies": {
+        "electron-packager": "^15.2.0"
+    }
+}
